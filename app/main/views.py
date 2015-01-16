@@ -1,9 +1,7 @@
 from flask import render_template, url_for
 from . import main
 import RPi.GPIO as GPIO
-
-
-light = 0
+from ...manage import light
 
 
 @main.route('/')
