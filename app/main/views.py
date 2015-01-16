@@ -3,11 +3,13 @@ from . import main
 import RPi.GPIO as GPIO
 
 
+light = 0
+
+
 @main.route('/')
 def index():
-    light = 0
     GPIO.setmode(GPIO.BCM)
-    GPIO.setup(25,GPIO.OUT)
+    GPIO.setup(25, GPIO.OUT)
     return render_template('index.html', light=light)
 
 
