@@ -7,7 +7,7 @@ import RPi.GPIO as GPIO
 def index():
     light = 0
     GPIO.setmode(GPIO.BCM)
-    GPIO.setup(GPIO.OUT)
+    GPIO.setup(25,GPIO.OUT)
     return render_template('index.html', light=light)
 
 
