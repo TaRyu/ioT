@@ -1,20 +1,25 @@
-from flask import render_template, redirect, url_for, make_response
+from flask import render_template, url_for
 from . import main
+import RPi.GPIO as GPIO
 
 
 @main.route('/')
 def index():
-    light = 1
+    light = 0
+    GPIO.setmode(GPIO.BCM)
+    GPIO.setup(GPIO.OUT)
     return render_template('index.html', light=light)
 
 
 @main.route('/turnon')
 def turnon():
-    print('1')
-    return make_response(redirect(url_for('.index')))
+    light = 1
+    GPIO.output(25, GPIO.HIGH)
+    return render_template('index.html', light=light)
 
 
 @main.route('/turnoff')
 def trunoff():
-    print('2')
-    return make_response(redirect(url_for('.index')))
+    light = 0
+    GPIO.output(25, GPIO.LOW)
+    return render_template('index.html', light=light)
