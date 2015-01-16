@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block page_content %}
+<div>
+    {% if not light %}
+    <a href="{{ url_for('.turnon') }}" role="button" class="btn btn-lg btn-block btn-default">开灯</a>
+    <a href="{{ url_for('.trunoff') }}" role="button" class="btn btn-lg btn-block btn-danger disabled">关灯</a>
+    {% else %}
+    <a href="{{ url_for('.turnon') }}" role="button" class="btn btn-lg btn-block btn-success disabled">开灯</a>
+    <a href="{{ url_for('.trunoff') }}" role="button" class="btn btn-lg btn-block btn-default">关灯</a>
+    {% endif %}
+</div>
+{% endblock %}
